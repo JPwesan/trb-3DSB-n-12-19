@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ex6.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Exercício 6</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo1">Algoritmos em JavaScript</h1>
+        <nav class="botoes">
+            <a href="index.html">Inicio</a>
+            <a href="ex1.html">Exercício 1</a>
+            <a href="ex2.html">Exercício 2</a>
+            <a href="ex3.html">Exercício 3</a>
+            <a href="ex4.html">Exercício 4</a>
+            <a href="ex5.html">Exercício 5</a>
+            <a href="ex6.html">Exercício 6</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+            <h2>Exercício 6</h2>
+            <p>Escreva um algoritmo que lê uma matriz M(5,5) e calcule as somas:</p>
+            <ul>
+                <li>a) da linha 4 de M;</li>
+                <li>b) da coluna 2 de M;</li>
+                <li>c) da diagonal principal;</li>
+                <li>d) da diagonal secundária;</li>
+                <li>e) de todos os elementos da matriz;</li>
+                <li>f) Escreva estas somas e a matriz</li>
+            </ul>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 - Todos os direitos reservados.</p>
+    </footer>
+    <button class="botao-voltar" onclick="window.location.href='index.html'">Voltar ao Início</button>
+    <script>
+        var matriz = [];
+
+        function lerMatriz() {
+            for (let i = 0; i < 5; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 5; j++) {
+                    matriz[i][j] = parseInt(prompt(`Digite o elemento da linha ${i + 1}, coluna ${j + 1}:`));
+                }
+            }
+        }
+
+        function calcularSomas() {
+            let somaLinha4 = 0;
+            let somaColuna2 = 0;
+            let somaDiagonalPrincipal = 0;
+            let somaDiagonalSecundaria = 0;
+            let somaTotal = 0;
+
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    somaTotal += matriz[i][j];
+
+                    if (i === 3) {
+                        somaLinha4 += matriz[i][j];
+                    }
+
+                    if (j === 1) {
+                        somaColuna2 += matriz[i][j];
+                    }
+
+                    if (i === j) {
+                        somaDiagonalPrincipal += matriz[i][j];
+                    }
+
+                    if (i + j === 4) {
+                        somaDiagonalSecundaria += matriz[i][j];
+                    }
+                }
+            }
+
+            return {
+                somaLinha4,
+                somaColuna2,
+                somaDiagonalPrincipal,
+                somaDiagonalSecundaria,
+                somaTotal
+            };
+        }
+
+        function exibirResultados() {
+            let resultados = calcularSomas();
+            let resultadoHTML = "<h2>Resultados:</h2>";
+            resultadoHTML += `<p>Soma da linha 4: ${resultados.somaLinha4}</p>`;
+            resultadoHTML += `<p>Soma da coluna 2: ${resultados.somaColuna2}</p>`;
+            resultadoHTML += `<p>Soma da diagonal principal: ${resultados.somaDiagonalPrincipal}</p>`;
+            resultadoHTML += `<p>Soma da diagonal secundária: ${resultados.somaDiagonalSecundaria}</p>`;
+            resultadoHTML += `<p>Soma de todos os elementos: ${resultados.somaTotal}</p>`;
+            resultadoHTML += "<h2>Matriz:</h2>";
+            resultadoHTML += "<table border='1'>";
+            for (let i = 0; i < 5; i++) {
+                resultadoHTML += "<tr>";
+                for (let j = 0; j < 5; j++) {
+                    resultadoHTML += `<td>${matriz[i][j]}</td>`;
+                }
+                resultadoHTML += "</tr>";
+            }
+            resultadoHTML += "</table>";
+            document.getElementById("resultado").innerHTML = resultadoHTML;
+        }
+
+        window.onload = function() {
+            lerMatriz();
+            exibirResultados();
+        };
+    </script>
+</body>
+</html>

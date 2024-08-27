@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ex3.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo1">Algoritmos em JavaScript</h1>
+        <nav class="botoes">
+            <a href="index.html">Inicio</a>
+            <a href="ex1.html">Exercício 1</a>
+            <a href="ex2.html">Exercício 2</a>
+            <a href="ex3.html">Exercício 3</a>
+            <a href="ex4.html">Exercício 4</a>
+            <a href="ex5.html">Exercício 5</a>
+            <a href="ex6.html">Exercício 6</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+            <h2>Exercício 3</h2>
+            <p>Suponha que você trabalhe como freelancer e queira calcular seu salário líquido ao final do mês. Você tem as seguintes informações:
+                Horas trabalhadas no mês (HT): 160 horas
+                Valor da hora trabalhada (VH): R$ 25,00
+                Percentual de desconto (PD): 10%
+                Agora, você precisa calcular seu salário bruto, o total de desconto e o salário líquido, de acordo com as fórmulas fornecidas.</p>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 - Todos os direitos reservados.</p>
+    </footer>
+    <button class="botao-voltar" onclick="window.location.href='index.html'">Voltar ao Início</button>
+    <script>
+        const ht = 160; // Horas trabalhadas
+        const vh = 25; // Valor da hora trabalhada
+        const pd = 0.1; // Percentual de desconto
+
+        const sb = ht * vh; // Salário bruto
+        const td = sb * pd; // Total de desconto
+        const sl = sb - td; // Salário líquido
+
+        document.getElementById("resultado").innerHTML = `<h2>Resultados:</h2>
+            <p>Salário bruto: R$ ${sb.toFixed(2)}</p>
+            <p>Total de desconto: R$ ${td.toFixed(2)}</p>
+            <p>Salário líquido: R$ ${sl.toFixed(2)}</p>`;
+    </script>
+</body>
+</html>

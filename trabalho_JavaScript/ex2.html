@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>></title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo1">Algoritmos em JavaScript</h1>
+        <br>
+        <nav class="botoes">
+            <a href="index.html">Inicio</a>
+            <a href="ex1.html">Exercicio 1</a>
+            <a href="ex2.html">Exercicio 2</a>
+            <a href="ex3.html">Exercicio 3</a>
+            <a href="ex4.html">Exercicio 4</a>
+            <a href="ex5.html">Exercicio 5</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+            <h2>Exercício 2</h2>
+            <p>Ciclano, um estudante dedicado da 3ª Série, está se preparando para calcular sua média final. Ele realizou quatro provas ao longo do semestre: P1, P2, P3 e P4. Agora, ele precisa de um algoritmo que o ajude a calcular sua média final, para que ele saiba como está seu desempenho acadêmico até o momento.. Faça um algoritmo que calcule a média final do aluno “Ciclano” da 3ª Série.</p>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 - Todos os direitos reservados.</p>
+    </footer>
+    <button class="botao-voltar" onclick="window.location.href='index.html'">Voltar ao Início</button>
+    <script>
+    function calcularMedia(notas) {
+    let soma = notas.reduce((acumulador, nota) => acumulador + nota, 0);
+    let media = soma / notas.length;
+    return media;
+    }
+
+
+    function main() {
+    let p1 = parseFloat(prompt("Digite a nota da P1:"));
+    let p2 = parseFloat(prompt("Digite a nota da P2:"));
+    let p3 = parseFloat(prompt("Digite a nota da P3:"));
+    let p4 = parseFloat(prompt("Digite a nota da P4:"));
+    
+    let notas = [p1, p2, p3, p4];
+    
+    let mediaFinal = calcularMedia(notas);
+    
+    alert(`A média final do aluno Ciclano é: ${mediaFinal.toFixed(2)}`);
+    }
+
+    main();
+    </script>
+    </body>
+    </html>

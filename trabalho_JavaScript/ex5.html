@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ex5.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo1">Algoritmos em JavaScript</h1>
+        <nav class="botoes">
+            <a href="index.html">Inicio</a>
+            <a href="ex1.html">Exercício 1</a>
+            <a href="ex2.html">Exercício 2</a>
+            <a href="ex3.html">Exercício 3</a>
+            <a href="ex4.html">Exercício 4</a>
+            <a href="ex5.html">Exercício 5</a>
+            <a href="ex6.html">Exercício 6</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+            <h2>Exercício 5</h2>
+            <p>Escreva um algoritmo que leia uma palavra inicial, o programa deve pedir para o usuário digitar um conjunto de 10 novas palavras e caso uma delas for igual a inicial o programa deve imprimir uma mensagem de erro.</p>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 - Todos os direitos reservados.</p>
+    </footer>
+    <button class="botao-voltar" onclick="window.location.href='index.html'">Voltar ao Início</button>
+    <script>
+        function lerPalavraInicial() {
+            return prompt("Digite a palavra inicial:");
+        }
+
+        function lerNovasPalavras(palavraInicial) {
+            let palavras = [];
+            for (let i = 0; i < 10; i++) {
+                let novaPalavra = prompt(`Digite a palavra ${i + 1}:`);
+                if (novaPalavra.toLowerCase() === palavraInicial.toLowerCase()) {
+                    alert(`Erro: A palavra ${novaPalavra} já foi inserida como palavra inicial.`);
+                    return false;
+                }
+                palavras.push(novaPalavra);
+            }
+            return palavras;
+        }
+
+        function exibirResultados(palavras) {
+            let resultadoHTML = "<h2>Palavras inseridas:</h2>";
+            resultadoHTML += "<ul>";
+            for (let i = 0; i < palavras.length; i++) {
+                resultadoHTML += `<li>${palavras[i]}</li>`;
+            }
+            resultadoHTML += "</ul>";
+            document.getElementById("resultado").innerHTML = resultadoHTML;
+        }
+
+        window.onload = function() {
+            let palavraInicial = lerPalavraInicial();
+            let novasPalavras = lerNovasPalavras(palavraInicial);
+            if (novasPalavras) {
+                exibirResultados(novasPalavras);
+            }
+        };
+    </script>
+</body>
+</html>

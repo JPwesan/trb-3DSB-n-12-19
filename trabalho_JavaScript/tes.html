@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>></title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="titulo1">Algoritmos em JavaScript</h1>
+        <br>
+        <div class="botoes">
+            <a href="ex1.html">Exercicio 1</a>
+            <a href="ex2.html">Exercicio 2</a>
+            <a href="ex3.html">Exercicio 3</a>
+            <a href="ex4.html">Exercicio 4</a>
+            <a href="ex5.html">Exercicio 5</a>
+        </div>
+    </div>
+    <script>
+        // Função para calcular a média das notas
+function calcularMedia(notas) {
+    // Calcula a soma das notas
+    let soma = notas.reduce((acumulador, nota) => acumulador + nota, 0);
+    // Calcula a média dividindo a soma pelo número de notas
+    let media = soma / notas.length;
+    return media;
+}
+
+// Função principal para coletar as notas e exibir a média
+function main() {
+    // Solicita as notas das provas ao usuário
+    let p1 = parseFloat(prompt("Digite a nota da P1:"));
+    let p2 = parseFloat(prompt("Digite a nota da P2:"));
+    let p3 = parseFloat(prompt("Digite a nota da P3:"));
+    let p4 = parseFloat(prompt("Digite a nota da P4:"));
+    
+    // Armazena as notas em uma lista
+    let notas = [p1, p2, p3, p4];
+    
+    // Calcula a média usando a função
+    let mediaFinal = calcularMedia(notas);
+    
+    // Exibe a média final
+    alert(`A média final do aluno Ciclano é: ${mediaFinal.toFixed(2)}`);
+}
+
+// Chama a função principal
+main();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ex1.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo1">Algoritmos em JavaScript</h1>
+        <nav class="botoes">
+            <a href="index.html">Inicio</a>
+            <a href="ex1.html">Exercício 1</a>
+            <a href="ex2.html">Exercício 2</a>
+            <a href="ex3.html">Exercício 3</a>
+            <a href="ex4.html">Exercício 4</a>
+            <a href="ex5.html">Exercício 5</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section>
+            <h2>Exercício 1</h2>
+            <p>Faça um algoritmo que leia um conjunto de números (X) e imprima sua soma (Soma) e sua média (Media). Admita que o valor 9999 é utilizado como sentinela para fim de leitura.
+                Ex.: 1, 2, 3 => Soma=6 Media=2</p>
+            <div id="resultado"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 - Todos os direitos reservados.</p>
+    </footer>
+    <button class="botao-voltar" onclick="window.location.href='index.html'">Voltar ao Início</button>
+    <script>
+        var soma = 0;
+        var contador = 0;
+        var numero;
+
+        entradadedados();
+        mensagemderesposta();
+        resposta();
+
+        function entradadedados() {
+            while (true) {
+                numero = parseInt(prompt("Digite um número (9999 para parar):"));
+
+                if (numero == 9999) {
+                    break;
+                }
+                soma = soma + numero;
+                contador++;
+            }
+        }
+
+        function mensagemderesposta() {
+            document.getElementById("resultado").innerHTML = "<h2> As respostas solicitadas são: </h2> <br>";
+        }
+
+        function resposta() {
+            if (contador > 0) {
+                const media = soma / contador;
+                document.getElementById("resultado").innerHTML += "<br> A Soma dos números é: " + soma;
+                document.getElementById("resultado").innerHTML += "<br> A Média dos números é: " + media;
+            } else {
+                document.getElementById("resultado").innerHTML += "<br> Nenhum número foi digitado.";
+            }
+        }
+    </script>
+</body>
+</html>
